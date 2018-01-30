@@ -14,7 +14,7 @@ public class Matematica {
         return fact;
     }
 
-    public static int fib(int i) {
+    public static long fib(int i) {
         if (i <= 0) {
             return 0;
         } else if (i == 1) {
