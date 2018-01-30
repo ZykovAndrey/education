@@ -11,8 +11,8 @@ public class TestFibo {
         assertEquals(1, Matematica.fib(2));
         assertEquals(8, Matematica.fib(6));
     }
-    @Test
-    public void testFibonachiNegative(){
-        assertEquals(0, Matematica.fib(-3));
+    @Test(expected = IllegalArgumentException.class)
+    public void testFibonachiNegative() {
+        Matematica.fib(-8);
     }
 }

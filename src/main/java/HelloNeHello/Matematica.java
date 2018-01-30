@@ -15,7 +15,9 @@ public class Matematica {
     }
 
     public static long fib(int i) {
-        if (i <= 0) {
+        if (i < 0)
+            throw new IllegalArgumentException("Не надо так!");
+        if (i == 0) {
             return 0;
         } else if (i == 1) {
             return 1;
