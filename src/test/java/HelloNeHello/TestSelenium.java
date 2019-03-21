@@ -2,12 +2,9 @@ package HelloNeHello;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,17 +18,19 @@ public class TestSelenium {
 
         System.setProperty("webdriver.chrome.driver", "C://Program Files (x86)//Google//WebDrivers//chromedriver.exe");
         WebDriver chromeDriver = new ChromeDriver();
+        chromeDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        chromeDriver.manage().window().maximize();
         chromeDriver.get("https://habrahabr.ru/");
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         chromeDriver.findElement(By.linkText("Компании")).click();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         WebElement find = chromeDriver.findElement(By.id("companies_suggest"));
-        find.sendKeys("ФБК");
+        find.sendKeys("Google");
         Thread.sleep(2000);
 
         chromeDriver.findElement(By.id("companies"));
-        chromeDriver.findElement(By.id("company_1647"));
-        WebElement name = chromeDriver.findElement(By.cssSelector(".list-snippet__desc"));
+        chromeDriver.findElement(By.id("company_65"));
+        WebElement name = chromeDriver.findElement(By.cssSelector(".searched-item"));
         chromeDriver.findElement(By.cssSelector(".table-grid__item.table-grid__item_right"));
         chromeDriver.findElement(By.cssSelector(".stats.stats_inline"));
         WebElement subscribers = chromeDriver
